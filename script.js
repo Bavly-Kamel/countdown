@@ -6,7 +6,7 @@
 // The End Of The Year Date
 // 1000 milliseconds = 1 Second
 
-let countDownDate = new Date("Jan 12, 2024 9:00:00").getTime();
+let countDownDate = new Date("May 11, 2024 9:04:00").getTime();
 // console.log(countDownDate);
 
 let counter = setInterval(() => {
@@ -22,16 +22,18 @@ let counter = setInterval(() => {
   let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+  let milliseconds = Math.floor(dateDiff % 1000);
 
   document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
   document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
   document.querySelector(".minutes").innerHTML = minutes < 10 ? `0${minutes}` : minutes;
   document.querySelector(".seconds").innerHTML = seconds < 10 ? `0${seconds}` : seconds;
+  document.querySelector(".milliseconds").innerHTML = milliseconds < 10 ? `00${milliseconds}` : (milliseconds < 100 ? `0${milliseconds}` : milliseconds);
 
   if (dateDiff < 0) {
     clearInterval(counter);
   }
-}, 1000);
+}, 10);
 
 /*
  ** Animate Width On Scrolling
